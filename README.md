@@ -50,7 +50,7 @@ La imagen acepta los siguientes parámetros de configuración.
 
 Parametro | Uso
 -------- | -----
---privileged | Da privilegios elevado al contenedot (necesario para creear tun0)
+--privileged | Da privilegios elevado al contenedor (necesario para creear tun0)
 -e PUID=1000 | Para UserID (explicación más abajo)
 -e GUID=1000 | Para GroupID (explicación más abajo)
 -e PORT=7070 | Para cambiar el puerto de la interfaz web
