@@ -20,7 +20,7 @@ docker run -d \
   secure-qbittorrent
 ```
 
-###Docker Compose
+### Docker Compose
 
 ```
 version: "2.1"
