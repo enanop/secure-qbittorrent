@@ -7,6 +7,7 @@
  ```
 docker run -d \
   --name=secure-qbittorrent \
+  --privileged \
   -e PUID=1000 \
   -e GUID=1000 \
   -e PORT=7070 \
@@ -29,6 +30,7 @@ services:
     image: secure-qbittorrent
     container_name: secure-qbittorrent
     restart: unless-stopped
+    privileged: true
     environment:
       - PUID=1000
       - GUID=1000
@@ -46,9 +48,10 @@ services:
 ### Parametros
 La imagen acepta los siguientes parámetros de configuración.
 
-Parametro | Valor
+Parametro | Uso
 -------- | -----
- -e PUID=1000| Para UserID (explicación más abajo)
+--privileged | Da privilegios elevado al contenedot (necesario para creear tun0)
+-e PUID=1000 | Para UserID (explicación más abajo)
 -e GUID=1000 | Para GroupID (explicación más abajo)
 -e PORT=7070 | Para cambiar el puerto de la interfaz web
 -p 6881:6881 |Puero para la conección tcp
