@@ -2,6 +2,8 @@
 **secure-qbitorrent**, es una imagen docker que combina openvpn y qbittorrent para encriptar el trafico peer to peer
 
 ### Uso:
+### Docker CLI
+
  ```
 docker run -d \
   --name=secure-qbittorrent \
@@ -16,6 +18,29 @@ docker run -d \
   -v /path/to/openvpn_config_files:/etc/openvpn/clients
   --restart unless-stopped \
   secure-qbittorrent
+```
+
+###Docker Compose
+
+```
+version: "2.1"
+services:
+  secure-qbittorrent:
+    image: secure-qbittorrent
+    container_name: secure-qbittorrent
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - GUID=1000
+      - PORT=7070
+    volumes:
+      - /path/to/appdata/config:/config
+      - /path/to/downloads:/downloads
+      - /path/to/openvpn_config_files:/etc/openvpn/clients
+	ports:
+      - 7070:7070
+      - 6881:6881
+      - 6881:6881/udp
 ```
 
 ### Parametros
